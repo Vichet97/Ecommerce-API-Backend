@@ -8,7 +8,7 @@ var Errors =
         "error": {
             "status": 400,
             "code": "ATT_01",
-            "message": "Don'exist attribute with this ID.",
+            "message": "Doesn't exist attribute with this ID.",
             "field": "attribute_id"
         }
     },

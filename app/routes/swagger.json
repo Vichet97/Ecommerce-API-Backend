@@ -1,7 +1,7 @@
 {
   "swagger": "2.0",
   "info": {
-    "description": "This API is built based on NodeJs With ExpressJs Framework using MVC and Swagger for the API Docs\n\n HTTPS is available on port: 443 \n\n[Github](https://github.com/Vichet97/Ecommerce-API-Backend)\n\n`Success Responses`\n\n  200 - success\n\n `Errors Responses`\n\n `Attribute's Errors`\n\n 400 - ATT_01 - Don'exist attribute with this ID.\n\n `Authentication's Errors`\n\n 401 - AUT_01 - Authorization code is empty\n 401 - AUT_02 - Access Unauthorized\n\n `Category's Errors`\n\n 400 - CAT_01 - Don't exist category with this ID\n\n `Department's Errors`\n\n  400 - DEP_01 - The ID is not a number\n 400 - DEP_02 - Don'exist department with this ID\n\n `User's Errors`\n\n  400 - USR_01 - Email or Password is invalid\n  400 - USR_02 - Invalid Field(s) Input \n  400 - USR_03 - The email is invalid\n     400 - USR_04 - The email already exists.\n 400 - USR_05 - The email doesn't exist.\n 400 - USR_06 - This is an invalid phone number\n 400 - USR_07 - The filled in field is too long\n 400 - USR_08 - This is an invalid Credit Card\n 400 - USR_09 - The Shipping Region ID is not number\n 400 - USR_10 - The field(s) are/is required.\n\n `Pagination's Errors`\n\n 400 - PAG_01 - Page Not Exist\n 400 - PAG_02 - The field of order is not allow sorting\n 400 - PAG_03 - Limit Not Valid.\n 400 - PRO_01 - Don't exist product with this ID'\n",
+    "description": "This API is built based on NodeJs With ExpressJs Framework using MVC and [`Swagger UI`](/api-docs/v1/)/[`ReDoc UI`](/api-docs/v2/) for the API Docs<br><br> HTTPS is available on port: 443 <br><br>[Github](https://github.com/Vichet97/Ecommerce-API-Backend)<br><br>`Success Responses`<br><br>  200 - success<br><br> `Errors Responses`<br><br> `Attribute's Errors`<br><br> 400 - ATT_01 - Doesn't exist attribute with this ID.<br><br> `Authentication's Errors`<br><br> 401 - AUT_01 - Authorization code is empty<br> 401 - AUT_02 - Access Unauthorized<br><br> `Category's Errors`<br><br> 400 - CAT_01 - Don't exist category with this ID<br><br> `Department's Errors`<br><br>  400 - DEP_01 - The ID is not a number<br> 400 - DEP_02 - Don'exist department with this ID<br><br> `User's Errors`<br><br>  400 - USR_01 - Email or Password is invalid<br>  400 - USR_02 - Invalid Field(s) Input <br>  400 - USR_03 - The email is invalid<br>     400 - USR_04 - The email already exists.<br> 400 - USR_05 - The email doesn't exist.<br> 400 - USR_06 - This is an invalid phone number<br> 400 - USR_07 - The filled in field is too long<br> 400 - USR_08 - This is an invalid Credit Card<br> 400 - USR_09 - The Shipping Region ID is not number<br> 400 - USR_10 - The field(s) are/is required.<br><br> `Pagination's Errors`<br><br> 400 - PAG_01 - Page Not Exist<br> 400 - PAG_02 - The field of order is not allow sorting<br> 400 - PAG_03 - Limit Not Valid.<br> 400 - PRO_01 - Don't exist product with this ID'<br>",
     "version": "1.0.0",
     "title": "Ecommerce API Documents",
     "contact": {
@@ -44,15 +44,15 @@
             "name": "page",
             "in": "query",
             "required": false,
-            "type": "string",
+            "type": "integer",
             "description": "Show by page number, Default 1"
           },
           {
             "name": "limit",
             "in": "query",
             "required": false,
-            "type": "string",
-            "description": "Limit Item per page, Default 20"
+            "type": "integer",
+            "description": "Limit Items per page, Default 20"
           }
         ],
         "responses": {
@@ -62,19 +62,16 @@
               "type": "object",
               "properties": {
                 "count": {
-                  "type": "integer",
-                  "format": "int32"
+                  "type": "integer"
                 },
                 "rows": {
                   "type": "object",
                   "properties": {
                     "category_id": {
-                      "type": "integer",
-                      "format": "int32"
+                      "type": "integer"
                     },
                     "department_id": {
-                      "type": "integer",
-                      "format": "int32"
+                      "type": "integer"
                     },
                     "name": {
                       "type": "string"
@@ -167,7 +164,7 @@
             "in": "path",
             "required": true,
             "type": "string",
-            "description": ""
+            "description": "Category ID"
           }
         ],
         "responses": {
@@ -222,7 +219,7 @@
             "in": "path",
             "required": true,
             "type": "string",
-            "description": ""
+            "description": "Product ID"
           }
         ],
         "responses": {
@@ -234,12 +231,10 @@
                 "type": "object",
                 "properties": {
                   "category_id": {
-                    "type": "integer",
-                    "format": "int32"
+                    "type": "integer"
                   },
                   "department_id": {
-                    "type": "integer",
-                    "format": "int32"
+                    "type": "integer"
                   },
                   "name": {
                     "type": "string"
@@ -283,7 +278,7 @@
             "in": "path",
             "required": true,
             "type": "string",
-            "description": ""
+            "description": "Department ID"
           }
         ],
         "responses": {
@@ -316,8 +311,7 @@
                 "type": "object",
                 "properties": {
                   "department_id": {
-                    "type": "integer",
-                    "format": "int32"
+                    "type": "integer"
                   },
                   "name": {
                     "type": "string"
@@ -374,7 +368,7 @@
             "in": "path",
             "required": true,
             "type": "string",
-            "description": ""
+            "description": "Department ID"
           }
         ],
         "responses": {
@@ -384,8 +378,7 @@
               "type": "object",
               "properties": {
                 "department_id": {
-                  "type": "integer",
-                  "format": "int32"
+                  "type": "integer"
                 },
                 "name": {
                   "type": "string"
@@ -454,8 +447,7 @@
                 "type": "object",
                 "properties": {
                   "attribute_id": {
-                    "type": "integer",
-                    "format": "int32"
+                    "type": "integer"
                   },
                   "name": {
                     "type": "string"
@@ -501,7 +493,7 @@
             "in": "path",
             "required": true,
             "type": "string",
-            "description": ""
+            "description": "Attribute ID"
           }
         ],
         "responses": {
@@ -516,8 +508,7 @@
               "type": "object",
               "properties": {
                 "attribute_id": {
-                  "type": "integer",
-                  "format": "int32"
+                  "type": "integer"
                 },
                 "name": {
                   "type": "string"
@@ -572,7 +563,7 @@
             "in": "path",
             "required": true,
             "type": "string",
-            "description": ""
+            "description": "Attribute ID"
           }
         ],
         "responses": {
@@ -584,8 +575,7 @@
                 "type": "object",
                 "properties": {
                   "attribute_value_id": {
-                    "type": "integer",
-                    "format": "int32"
+                    "type": "integer"
                   },
                   "value": {
                     "type": "string"
@@ -659,7 +649,7 @@
             "in": "path",
             "required": true,
             "type": "string",
-            "description": ""
+            "description": "Attribute ID"
           }
         ],
         "responses": {
@@ -671,8 +661,7 @@
                 "type": "object",
                 "properties": {
                   "attribute_value_id": {
-                    "type": "integer",
-                    "format": "int32"
+                    "type": "integer"
                   },
                   "attribute_value": {
                     "type": "string"
@@ -764,22 +753,22 @@
           {
             "name": "page",
             "in": "query",
-            "required": true,
-            "type": "string",
-            "description": "Page Number, Default: 1"
+            "required": false,
+            "type": "integer",
+            "description": "Show by page number, Default 1"
           },
           {
             "name": "limit",
             "in": "query",
-            "required": true,
-            "type": "string",
+            "required": false,
+            "type": "integer",
             "description": "Limit Items Per Page, Default: 20"
           },
           {
             "name": "description_length",
             "in": "query",
-            "required": true,
-            "type": "string",
+            "required": false,
+            "type": "integer",
             "description": "Description Length, Default: 200"
           }
         ],
@@ -791,8 +780,7 @@
               "type": "object",
               "properties": {
                 "count": {
-                  "type": "integer",
-                  "format": "int32"
+                  "type": "integer"
                 },
                 "rows": {
                   "type": "array",
@@ -809,8 +797,7 @@
                     "type": "object",
                     "properties": {
                       "product_id": {
-                        "type": "integer",
-                        "format": "int32"
+                        "type": "integer"
                       },
                       "name": {
                         "type": "string"
@@ -823,8 +810,7 @@
                         "format": "double"
                       },
                       "discounted_price": {
-                        "type": "integer",
-                        "format": "int32"
+                        "type": "number"
                       },
                       "thumbnail": {
                         "type": "string"
@@ -873,29 +859,29 @@
           {
             "name": "all_words",
             "in": "query",
-            "required": true,
+            "required": false,
             "type": "string",
-            "description": "Available values : on, off\nDefault: on"
+            "description": "Available values : on, off<br>Default: on"
           },
           {
             "name": "page",
             "in": "query",
-            "required": true,
-            "type": "string",
-            "description": "Page Number, Default: 1"
+            "required": false,
+            "type": "integer",
+            "description": "Show by page number, Default 1"
           },
           {
             "name": "limit",
             "in": "query",
-            "required": true,
-            "type": "string",
+            "required": false,
+            "type": "integer",
             "description": "Limit Items Per Page, Default: 20"
           },
           {
             "name": "description_length",
             "in": "query",
-            "required": true,
-            "type": "string",
+            "required": false,
+            "type": "integer",
             "description": "Description Length, Default: 200"
           }
         ],
@@ -906,8 +892,7 @@
               "type": "object",
               "properties": {
                 "count": {
-                  "type": "integer",
-                  "format": "int32"
+                  "type": "integer"
                 },
                 "rows": {
                   "type": "array",
@@ -915,8 +900,7 @@
                     "type": "object",
                     "properties": {
                       "product_id": {
-                        "type": "integer",
-                        "format": "int32"
+                        "type": "integer"
                       },
                       "name": {
                         "type": "string"
@@ -997,7 +981,7 @@
             "in": "path",
             "required": true,
             "type": "string",
-            "description": ""
+            "description": "Product ID"
           }
         ],
         "responses": {
@@ -1053,35 +1037,32 @@
         ],
         "parameters": [
           {
-            "name": "page",
-            "in": "query",
-            "required": true,
-            "type": "integer",
-            "format": "int32",
-            "description": ""
-          },
-          {
-            "name": "limit",
-            "in": "query",
-            "required": true,
-            "type": "integer",
-            "format": "int32",
-            "description": ""
-          },
-          {
-            "name": "description_length",
-            "in": "query",
-            "required": true,
-            "type": "integer",
-            "format": "int32",
-            "description": ""
-          },
-          {
             "name": "category_id",
             "in": "path",
             "required": true,
             "type": "string",
-            "description": ""
+            "description": "Product Category ID"
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "description": "Show by page number, Default 1"
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "description": "Limit Items per page, Default 20"
+          },
+          {
+            "name": "description_length",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "description": "Description Length, Default: 200"
           }
         ],
         "responses": {
@@ -1091,8 +1072,7 @@
               "type": "object",
               "properties": {
                 "product_id": {
-                  "type": "integer",
-                  "format": "int32"
+                  "type": "integer"
                 },
                 "name": {
                   "type": "string"
@@ -1105,8 +1085,7 @@
                   "format": "double"
                 },
                 "discounted_price": {
-                  "type": "integer",
-                  "format": "int32"
+                  "type": "number"
                 },
                 "image": {
                   "type": "string"
@@ -1118,8 +1097,7 @@
                   "type": "string"
                 },
                 "display": {
-                  "type": "integer",
-                  "format": "int32"
+                  "type": "integer"
                 }
               },
               "required": [
@@ -1165,32 +1143,32 @@
         ],
         "parameters": [
           {
-            "name": "page",
-            "in": "query",
-            "required": true,
-            "type": "string",
-            "description": ""
-          },
-          {
-            "name": "limit",
-            "in": "query",
-            "required": true,
-            "type": "string",
-            "description": ""
-          },
-          {
-            "name": "description_length",
-            "in": "query",
-            "required": true,
-            "type": "string",
-            "description": ""
-          },
-          {
             "name": "department_id",
             "in": "path",
             "required": true,
             "type": "string",
-            "description": ""
+            "description": "Product Department ID"
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "description": "Show by page number, Default 1"
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "description": "Limit Items per page, Default 20"
+          },
+          {
+            "name": "description_length",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "description": "Description Length, Default: 200"
           }
         ],
         "responses": {
@@ -1200,8 +1178,7 @@
               "type": "object",
               "properties": {
                 "count": {
-                  "type": "integer",
-                  "format": "int32"
+                  "type": "integer"
                 },
                 "rows": {
                   "type": "array",
@@ -1209,8 +1186,7 @@
                     "type": "object",
                     "properties": {
                       "product_id": {
-                        "type": "integer",
-                        "format": "int32"
+                        "type": "integer"
                       },
                       "name": {
                         "type": "string"
@@ -1283,7 +1259,7 @@
             "in": "path",
             "required": true,
             "type": "string",
-            "description": ""
+            "description": "Product ID"
           }
         ],
         "responses": {
@@ -1295,8 +1271,7 @@
                 "type": "object",
                 "properties": {
                   "product_id": {
-                    "type": "integer",
-                    "format": "int32"
+                    "type": "integer"
                   },
                   "name": {
                     "type": "string"
@@ -1309,8 +1284,7 @@
                     "format": "double"
                   },
                   "discounted_price": {
-                    "type": "integer",
-                    "format": "int32"
+                    "type": "number"
                   },
                   "image": {
                     "type": "string"
@@ -1365,7 +1339,7 @@
             "in": "path",
             "required": true,
             "type": "string",
-            "description": ""
+            "description": "Product ID"
           }
         ],
         "responses": {
@@ -1377,15 +1351,13 @@
                 "type": "object",
                 "properties": {
                   "category_id": {
-                    "type": "integer",
-                    "format": "int32"
+                    "type": "integer"
                   },
                   "category_name": {
                     "type": "string"
                   },
                   "department_id": {
-                    "type": "integer",
-                    "format": "int32"
+                    "type": "integer"
                   },
                   "department_name": {
                     "type": "string"
@@ -1431,7 +1403,7 @@
             "in": "path",
             "required": true,
             "type": "string",
-            "description": ""
+            "description": "Product ID"
           }
         ],
         "responses": {
@@ -1449,8 +1421,7 @@
                     "type": "string"
                   },
                   "rating": {
-                    "type": "integer",
-                    "format": "int32"
+                    "type": "integer"
                   },
                   "created_on": {
                     "type": "string"
@@ -1493,11 +1464,11 @@
         ],
         "parameters": [
           {
-            "name": "USER-KEY",
-            "in": "header",
+            "name": "product_id",
+            "in": "path",
             "required": true,
-            "type": "string",
-            "description": "Bearer {accessToken}"
+            "type": "integer",
+            "description": "Product ID"
           },
           {
             "name": "review",
@@ -1511,15 +1482,7 @@
             "in": "formData",
             "required": true,
             "type": "integer",
-            "format": "int32",
             "description": "Rating  of Product"
-          },
-          {
-            "name": "product_id",
-            "in": "path",
-            "required": true,
-            "type": "string",
-            "description": ""
           }
         ],
         "responses": {
@@ -1591,8 +1554,7 @@
                 "type": "object",
                 "properties": {
                   "tax_id": {
-                    "type": "integer",
-                    "format": "int32"
+                    "type": "integer"
                   },
                   "tax_type": {
                     "type": "string"
@@ -1645,7 +1607,7 @@
             "in": "path",
             "required": true,
             "type": "string",
-            "description": ""
+            "description": "Tax ID"
           }
         ],
         "responses": {
@@ -1655,8 +1617,7 @@
               "type": "object",
               "properties": {
                 "tax_id": {
-                  "type": "integer",
-                  "format": "int32"
+                  "type": "integer"
                 },
                 "tax_type": {
                   "type": "string"
@@ -1721,8 +1682,7 @@
                 "type": "object",
                 "properties": {
                   "shipping_region_id": {
-                    "type": "integer",
-                    "format": "int32"
+                    "type": "integer"
                   },
                   "shipping_region": {
                     "type": "string"
@@ -1776,7 +1736,7 @@
             "in": "path",
             "required": true,
             "type": "string",
-            "description": ""
+            "description": "Shipping Region ID"
           }
         ],
         "responses": {
@@ -1788,19 +1748,16 @@
                 "type": "object",
                 "properties": {
                   "shipping_id": {
-                    "type": "integer",
-                    "format": "int32"
+                    "type": "integer"
                   },
                   "shipping_type": {
                     "type": "string"
                   },
                   "shipping_cost": {
-                    "type": "integer",
-                    "format": "int32"
+                    "type": "number"
                   },
                   "shipping_region_id": {
-                    "type": "integer",
-                    "format": "int32"
+                    "type": "integer"
                   }
                 },
                 "required": [
@@ -1839,7 +1796,7 @@
     },
     "/stripe/charge": {
       "post": {
-        "description": "Return Object from Stripe\nGuide: https://stripe.com/docs/api/charges/create",
+        "description": "Return Object from Stripe<br>Guide: https://stripe.com/docs/api/charges/create",
         "summary": "Post Stripe Charge Token From Front-End and Make Charge Request",
         "tags": [
           "Stripe"
@@ -1864,7 +1821,7 @@
             "name": "order_id",
             "in": "formData",
             "required": true,
-            "type": "string",
+            "type": "integer",
             "description": "Order ID to Store in Stripe metadata"
           },
           {
@@ -1878,15 +1835,15 @@
             "name": "amount",
             "in": "formData",
             "required": true,
-            "type": "string",
+            "type": "number",
             "description": "Charge Amount"
           },
           {
             "name": "currency",
             "in": "formData",
-            "required": true,
+            "required": false,
             "type": "string",
-            "description": "Charge Currency, Default : USD\nSupported Currencies:  https://stripe.com/docs/currencies"
+            "description": "Charge Currency, Default : USD<br>Supported Currencies:  https://stripe.com/docs/currencies"
           }
         ],
         "responses": {
@@ -2018,8 +1975,7 @@
                 "type": "object",
                 "properties": {
                   "item_id": {
-                    "type": "integer",
-                    "format": "int32"
+                    "type": "integer"
                   },
                   "name": {
                     "type": "string"
@@ -2028,21 +1984,19 @@
                     "type": "string"
                   },
                   "product_id": {
-                    "type": "integer",
-                    "format": "int32"
+                    "type": "integer"
                   },
                   "price": {
-                    "type": "string"
+                    "type": "number"
                   },
                   "quantity": {
-                    "type": "integer",
-                    "format": "int32"
+                    "type": "integer"
                   },
                   "image": {
                     "type": "string"
                   },
                   "subtotal": {
-                    "type": "string"
+                    "type": "number"
                   }
                 },
                 "required": [
@@ -2109,7 +2063,7 @@
             "in": "path",
             "required": true,
             "type": "string",
-            "description": ""
+            "description": "Cart ID"
           }
         ],
         "responses": {
@@ -2121,8 +2075,7 @@
                 "type": "object",
                 "properties": {
                   "item_id": {
-                    "type": "integer",
-                    "format": "int32"
+                    "type": "integer"
                   },
                   "name": {
                     "type": "string"
@@ -2131,21 +2084,19 @@
                     "type": "string"
                   },
                   "product_id": {
-                    "type": "integer",
-                    "format": "int32"
+                    "type": "integer"
                   },
                   "price": {
-                    "type": "string"
+                    "type": "number"
                   },
                   "quantity": {
-                    "type": "integer",
-                    "format": "int32"
+                    "type": "integer"
                   },
                   "image": {
                     "type": "string"
                   },
                   "subtotal": {
-                    "type": "string"
+                    "type": "number"
                   }
                 },
                 "required": [
@@ -2206,8 +2157,8 @@
             "name": "item_id",
             "in": "path",
             "required": true,
-            "type": "string",
-            "description": ""
+            "type": "integer",
+            "description": "Item ID"
           }
         ],
         "responses": {
@@ -2219,8 +2170,7 @@
                 "type": "object",
                 "properties": {
                   "item_id": {
-                    "type": "integer",
-                    "format": "int32"
+                    "type": "integer"
                   },
                   "name": {
                     "type": "string"
@@ -2229,17 +2179,16 @@
                     "type": "string"
                   },
                   "product_id": {
-                    "type": "string"
+                    "type": "integer"
                   },
                   "price": {
-                    "type": "string"
+                    "type": "number"
                   },
                   "quantity": {
-                    "type": "integer",
-                    "format": "int32"
+                    "type": "integer"
                   },
                   "subtotal": {
-                    "type": "string"
+                    "type": "number"
                   }
                 },
                 "required": [
@@ -2304,7 +2253,7 @@
             "in": "path",
             "required": true,
             "type": "string",
-            "description": ""
+            "description": "Cart ID"
           }
         ],
         "responses": {
@@ -2314,7 +2263,12 @@
               "type": "string"
             },
             "examples": {
-              "text/plain": "\"success\": {\r\n  \"status\": 200,\r\n  \"message\": \"success\"\r\n}"
+              "application/json": {
+                                      "success": {
+                                        "status": 200,
+                                        "message": "success"
+                                      }
+                                  }
             },
             "headers": {}
           },
@@ -2353,7 +2307,7 @@
             "in": "path",
             "required": true,
             "type": "string",
-            "description": ""
+            "description": "Item ID"
           }
         ],
         "responses": {
@@ -2363,7 +2317,7 @@
               "type": "string"
             },
             "examples": {
-              "text/plain": "\"success\": {\r\n      \"status\": 200,\r\n      \"message\": \"success\"\r\n    }"
+              "application/json": {         "success": {           "status": 200,           "message": "success"         }     }
             },
             "headers": {}
           },
@@ -2402,7 +2356,7 @@
             "in": "path",
             "required": true,
             "type": "string",
-            "description": ""
+            "description": "Cart ID"
           }
         ],
         "responses": {
@@ -2412,8 +2366,7 @@
               "type": "object",
               "properties": {
                 "total_amount": {
-                  "type": "integer",
-                  "format": "int32"
+                  "type": "number"
                 }
               },
               "required": [
@@ -2462,7 +2415,7 @@
             "in": "path",
             "required": true,
             "type": "string",
-            "description": ""
+            "description": "Item ID"
           }
         ],
         "responses": {
@@ -2472,7 +2425,7 @@
               "type": "string"
             },
             "examples": {
-              "text/plain": "\"success\": {\r\n  \"status\": 200,\r\n  \"message\": \"success\"\r\n}\t\t       "
+              "application/json": {         "success": {           "status": 200,           "message": "success"         }     }
             },
             "headers": {}
           },
@@ -2511,7 +2464,7 @@
             "in": "path",
             "required": true,
             "type": "string",
-            "description": ""
+            "description": "Cart ID"
           }
         ],
         "responses": {
@@ -2521,8 +2474,7 @@
               "type": "object",
               "properties": {
                 "item_id": {
-                  "type": "integer",
-                  "format": "int32"
+                  "type": "integer"
                 },
                 "name": {
                   "type": "string"
@@ -2531,7 +2483,7 @@
                   "type": "string"
                 },
                 "price": {
-                  "type": "string"
+                  "type": "number"
                 }
               },
               "required": [
@@ -2586,7 +2538,7 @@
             "in": "path",
             "required": true,
             "type": "string",
-            "description": ""
+            "description": "Item ID"
           }
         ],
         "responses": {
@@ -2596,7 +2548,7 @@
               "type": "string"
             },
             "examples": {
-              "text/plain": "\"success\": {\r\n  \"status\": 200,\r\n  \"message\": \"success\"\r\n}"
+              "application/json": {         "success": {           "status": 200,           "message": "success"         }     }
             },
             "headers": {}
           },
@@ -2639,52 +2591,44 @@
         ],
         "parameters": [
           {
-            "name": "USER-KEY",
-            "in": "header",
-            "required": true,
-            "type": "string",
-            "description": "Bearer {accessToken}"
-          },
-          {
             "name": "name",
             "in": "formData",
             "required": true,
-            "type": "integer",
-            "format": "int32",
-            "description": "Customer name"
+            "type": "string",
+            "description": "Customer's name"
           },
           {
             "name": "email",
             "in": "formData",
             "required": true,
             "type": "string",
-            "description": "Customer email"
+            "description": "Customer's email"
           },
           {
             "name": "password",
             "in": "formData",
-            "required": true,
+            "required": false,
             "type": "string",
             "description": "Customer password"
           },
           {
             "name": "day_phone",
             "in": "formData",
-            "required": true,
+            "required": false,
             "type": "string",
             "description": "Customer day phone"
           },
           {
             "name": "eve_phone",
             "in": "formData",
-            "required": true,
+            "required": false,
             "type": "string",
             "description": "Customer eve phone"
           },
           {
             "name": "mob_phone",
             "in": "formData",
-            "required": true,
+            "required": false,
             "type": "string",
             "description": "Customer mob phone"
           }
@@ -2733,7 +2677,7 @@
       },
       "get": {
         "description": "Return a Object of Customer with auth credencials",
-        "summary": "Get a customer by ID. The customer is getting by Token.",
+        "summary": "Get a customer by ID. The customer ID is parsed in Token, extract it",
         "tags": [
           "Customers"
         ],
@@ -2745,15 +2689,6 @@
         "security": [
           {
             "accessToken": []
-          }
-        ],
-        "parameters": [
-          {
-            "name": "USER-KEY",
-            "in": "header",
-            "required": true,
-            "type": "string",
-            "description": "Bearer{accessToken}"
           }
         ],
         "responses": {
@@ -2803,7 +2738,7 @@
     },
     "/customers": {
       "post": {
-        "description": "Return a Object of Customer with auth credencials\r\n",
+        "description": "Return a Object of Customer with auth credencials<br>",
         "summary": "Register a Customer",
         "tags": [
           "Customers"
@@ -2907,7 +2842,7 @@
     },
     "/customers/login": {
       "post": {
-        "description": "Return a Object of Customer with auth credencials\r\n",
+        "description": "Return a Object of Customer with auth credencials<br>",
         "summary": "Sign in the Shopping",
         "tags": [
           "Customers"
@@ -2926,7 +2861,6 @@
             "in": "formData",
             "required": true,
             "type": "integer",
-            "format": "int32",
             "description": "Email of User"
           },
           {
@@ -2989,7 +2923,7 @@
     },
     "/customers/facebook": {
       "post": {
-        "description": "Return a Object of Customer with auth credencials\r\n",
+        "description": "Return a Object of Customer with auth credencials<br>",
         "summary": "Sign in with a facebook login token",
         "tags": [
           "Customers"
@@ -3008,7 +2942,7 @@
             "in": "formData",
             "required": true,
             "type": "string",
-            "description": "Token generated from your facebook login"
+            "description": "Token generated from Facebook login"
           }
         ],
         "responses": {
@@ -3063,7 +2997,7 @@
     },
     "/customers/address": {
       "put": {
-        "description": "Return a Customer Object\r\n",
+        "description": "Return a Customer Object<br>",
         "summary": "Update the address from customer",
         "tags": [
           "Customers"
@@ -3083,13 +3017,6 @@
         ],
         "parameters": [
           {
-            "name": "USER-KEY",
-            "in": "header",
-            "required": true,
-            "type": "string",
-            "description": "Bearer{accessToken}"
-          },
-          {
             "name": "address_1",
             "in": "formData",
             "required": true,
@@ -3099,7 +3026,7 @@
           {
             "name": "address_2",
             "in": "formData",
-            "required": true,
+            "required": false,
             "type": "string",
             "description": "Address 2"
           },
@@ -3191,7 +3118,7 @@
     },
     "/customers/creditCard": {
       "put": {
-        "description": "Return a Customer Object\r\n",
+        "description": "Return a Customer Object<br>",
         "summary": "Update the credit card from customer",
         "tags": [
           "Customers"
@@ -3210,13 +3137,6 @@
           }
         ],
         "parameters": [
-          {
-            "name": "USER-KEY",
-            "in": "header",
-            "required": true,
-            "type": "string",
-            "description": "Bearer {accessToken}"
-          },
           {
             "name": "credit_card",
             "in": "formData",
@@ -3296,19 +3216,12 @@
           "application/x-www-form-urlencoded"
         ],
         "parameters": [
-          {
-            "name": "USER-KEY",
-            "in": "header",
-            "required": true,
-            "type": "string",
-            "description": "Bearer{accessToken}"
-          },
+
           {
             "name": "cart_id",
             "in": "formData",
             "required": true,
             "type": "integer",
-            "format": "int32",
             "description": "Cart ID"
           },
           {
@@ -3333,8 +3246,7 @@
               "type": "object",
               "properties": {
                 "orderId": {
-                  "type": "integer",
-                  "format": "int32"
+                  "type": "integer"
                 }
               },
               "required": [
@@ -3385,19 +3297,13 @@
           "application/json"
         ],
         "parameters": [
-          {
-            "name": "USER-KEY",
-            "in": "header",
-            "required": true,
-            "type": "string",
-            "description": "Bearer {accessToken}"
-          },
+
           {
             "name": "order_id",
             "in": "path",
             "required": true,
             "type": "string",
-            "description": ""
+            "description": "Order ID"
           }
         ],
         "responses": {
@@ -3407,12 +3313,10 @@
               "type": "object",
               "properties": {
                 "order_id": {
-                  "type": "integer",
-                  "format": "int32"
+                  "type": "integer"
                 },
                 "product_id": {
-                  "type": "integer",
-                  "format": "int32"
+                  "type": "integer"
                 },
                 "attributes": {
                   "type": "string"
@@ -3421,14 +3325,13 @@
                   "type": "string"
                 },
                 "quantity": {
-                  "type": "integer",
-                  "format": "int32"
+                  "type": "integer"
                 },
                 "unit_cost": {
-                  "type": "string"
+                  "type": "number"
                 },
                 "subtotal": {
-                  "type": "string"
+                  "type": "number"
                 }
               },
               "required": [
@@ -3468,12 +3371,10 @@
               "type": "object",
               "properties": {
                 "order_id": {
-                  "type": "integer",
-                  "format": "int32"
+                  "type": "integer"
                 },
                 "total_amount": {
-                  "type": "integer",
-                  "format": "int32"
+                  "type": "number"
                 },
                 "created_on": {
                   "type": "string"
@@ -3482,8 +3383,7 @@
                   "type": "string"
                 },
                 "status": {
-                  "type": "integer",
-                  "format": "int32"
+                  "type": "integer"
                 },
                 "name": {
                   "type": "string"
@@ -3532,7 +3432,7 @@
             "accessToken": []
           }
         ],
-        "description": "Return a array of Orders\r\n",
+        "description": "Return a array of Orders<br>",
         "summary": "Get orders by Customer",
         "tags": [
           "Orders"
@@ -3542,15 +3442,7 @@
         "produces": [
           "application/json"
         ],
-        "parameters": [
-          {
-            "name": "USER-KEY",
-            "in": "header",
-            "required": true,
-            "type": "string",
-            "description": "Bearer {accessToken}"
-          }
-        ],
+
         "responses": {
           "200": {
             "description": "",
@@ -3613,8 +3505,7 @@
                   ]
                 },
                 "status": {
-                  "type": "integer",
-                  "format": "int32"
+                  "type": "integer"
                 }
               },
               "required": [
@@ -3652,19 +3543,13 @@
           "application/json"
         ],
         "parameters": [
-          {
-            "name": "USER-KEY",
-            "in": "header",
-            "required": true,
-            "type": "string",
-            "description": "Bearer {accessToken}"
-          },
+
           {
             "name": "order_id",
             "in": "path",
             "required": true,
             "type": "string",
-            "description": ""
+            "description": "Order ID"
           }
         ],
         "responses": {
@@ -3674,12 +3559,10 @@
               "type": "object",
               "properties": {
                 "order_id": {
-                  "type": "integer",
-                  "format": "int32"
+                  "type": "integer"
                 },
                 "total_amount": {
-                  "type": "integer",
-                  "format": "int32"
+                  "type": "number"
                 },
                 "created_on": {
                   "type": "string"
@@ -3688,8 +3571,7 @@
                   "type": "string"
                 },
                 "status": {
-                  "type": "integer",
-                  "format": "int32"
+                  "type": "integer"
                 },
                 "name": {
                   "type": "string"
@@ -3735,8 +3617,7 @@
                       "type": "string"
                     },
                     "status": {
-                      "type": "integer",
-                      "format": "int32"
+                      "type": "integer"
                     }
                   },
                   "required": [
@@ -3790,8 +3671,7 @@
       "type": "object",
       "properties": {
         "attribute_id": {
-          "type": "integer",
-          "format": "int32"
+          "type": "integer"
         },
         "name": {
           "type": "string"
@@ -3813,12 +3693,10 @@
       "type": "object",
       "properties": {
         "category_id": {
-          "type": "integer",
-          "format": "int32"
+          "type": "integer"
         },
         "department_id": {
-          "type": "integer",
-          "format": "int32"
+          "type": "integer"
         },
         "name": {
           "type": "string"
@@ -3857,8 +3735,7 @@
       "type": "object",
       "properties": {
         "customer_id": {
-          "type": "integer",
-          "format": "int32"
+          "type": "integer"
         },
         "name": {
           "type": "string"
@@ -3885,8 +3762,7 @@
           "type": "string"
         },
         "shipping_region_id": {
-          "type": "integer",
-          "format": "int32"
+          "type": "integer"
         },
         "day_phone": {
           "type": "string"
@@ -3929,8 +3805,7 @@
       "type": "object",
       "properties": {
         "department_id": {
-          "type": "integer",
-          "format": "int32"
+          "type": "integer"
         },
         "name": {
           "type": "string"
@@ -3961,8 +3836,7 @@
       "type": "object",
       "properties": {
         "product_id": {
-          "type": "integer",
-          "format": "int32"
+          "type": "integer"
         },
         "name": {
           "type": "string"
@@ -3975,8 +3849,7 @@
           "format": "double"
         },
         "discounted_price": {
-          "type": "integer",
-          "format": "int32"
+          "type": "number"
         },
         "image": {
           "type": "string"
@@ -3988,8 +3861,7 @@
           "type": "string"
         },
         "display": {
-          "type": "integer",
-          "format": "int32"
+          "type": "integer"
         }
       },
       "required": [
@@ -4014,8 +3886,7 @@
       "type": "object",
       "properties": {
         "tax_id": {
-          "type": "integer",
-          "format": "int32"
+          "type": "integer"
         },
         "tax_type": {
           "type": "string"
@@ -4042,19 +3913,16 @@
       "type": "object",
       "properties": {
         "shipping_id": {
-          "type": "integer",
-          "format": "int32"
+          "type": "integer"
         },
         "shipping_type": {
           "type": "string"
         },
         "shipping_cost": {
-          "type": "integer",
-          "format": "int32"
+          "type": "number"
         },
         "shipping_region_id": {
-          "type": "integer",
-          "format": "int32"
+          "type": "integer"
         }
       },
       "required": [
@@ -4093,12 +3961,10 @@
       "type": "object",
       "properties": {
         "order_id": {
-          "type": "integer",
-          "format": "int32"
+          "type": "integer"
         },
         "product_id": {
-          "type": "integer",
-          "format": "int32"
+          "type": "integer"
         },
         "attributes": {
           "type": "string"
@@ -4107,14 +3973,13 @@
           "type": "string"
         },
         "quantity": {
-          "type": "integer",
-          "format": "int32"
+          "type": "integer"
         },
         "unit_cost": {
-          "type": "string"
+          "type": "number"
         },
         "subtotal": {
-          "type": "string"
+          "type": "number"
         }
       },
       "required": [
@@ -4178,8 +4043,7 @@
       "type": "object",
       "properties": {
         "status": {
-          "type": "integer",
-          "format": "int32"
+          "type": "integer"
         },
         "message": {
           "type": "string"
@@ -4201,8 +4065,7 @@
       "type": "object",
       "properties": {
         "status": {
-          "type": "integer",
-          "format": "int32"
+          "type": "integer"
         },
         "code": {
           "type": "string"

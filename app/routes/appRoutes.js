@@ -16,6 +16,23 @@ module.exports = function(app) {
   const stripeController  = require('../controllers/stripeController');
 
   // API Docs Generator
+  const SwaggerUX = require('swagger-ux');
+  const SwaggerDocumentPath =__dirname + "\\swagger.json";
+  const SwaggerUXPath = "/api-docs/v2";
+  const SwaggerUXoptions = {
+      "documentPath": SwaggerDocumentPath,
+      "title": "REST-API Document",
+      "defaultUI": "redoc",
+      "routePath": SwaggerUXPath,
+  }
+  app.get("/api-docs/api-docs/swagger", function(req, res, next) {
+    res.redirect(SwaggerUXPath+"/swagger");
+  });
+  app.get("/api-docs/v2/api-docs/swagger", function(req, res, next) {
+    res.redirect(SwaggerUXPath+"/swagger");
+  });
+  SwaggerUX.route(app,SwaggerUXoptions); 
+
   const swaggerUi = require('swagger-ui-express');
   const swaggerDocument = require('./swagger.json');
   var options = {
@@ -24,7 +41,7 @@ module.exports = function(app) {
       filter: true,
     } 
   };
-  app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument, options));
+  app.use('/api-docs/v1', swaggerUi.serve, swaggerUi.setup(swaggerDocument, options));
   
   //------------Express Route------------------
   // Departments Routes  
