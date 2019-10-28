@@ -1,8 +1,8 @@
 # Ecommerce-API-Backend
 
-This API is built based on NodeJs With ExpressJs Framework using MVC and [Swagger UI](http://asiantvcdn.duckdns.org:3000/api-docs/v1)/[ReDoc UI](http://asiantvcdn.duckdns.org:3000/api-docs/v2) for the API Docs. It tooks me about 26hours to finish this Backend API.
+This API is built based on NodeJs With ExpressJs Framework using MVC and [Swagger UI](https://streamnet.gigalixirapp.com/api-docs/v1)/[ReDoc UI](https://streamnet.gigalixirapp.com/api-docs/v2) for the API Docs. It tooks me about 26hours to finish this Backend API.
 
-This API consists of 9 Endpoint Groups and 46 endpoints.<br> Check Out the API Docs for Details and List of APIs plus any possible Error Messages which is listed there and Try it Out. <br><pre> API Docs: https://infinite-temple-83656.herokuapp.com/api-docs/v1/</pre>
+This API consists of 9 Endpoint Groups and 46 endpoints.<br> Check Out the API Docs for Details and List of APIs plus any possible Error Messages which is listed there and Try it Out. <br><pre> API Docs: https://streamnet.gigalixirapp.com/api-docs/v1/</pre>
 
 Below is the folder Structure of the project.<br>
 <img src="https://github.com/Vichet97/Ecommerce-API-Backend/blob/master/images/Structure.PNG?raw=true"> <br>
